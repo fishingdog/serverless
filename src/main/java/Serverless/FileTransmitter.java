@@ -94,7 +94,7 @@ public static void downloadFile(Context ctx, String fileURL, String receiverEmai
             ctx.getLogger().log("storage created with file name: " + FILE_NAME);
 
             EmailSenderMailGun.sendSimpleMessage(ctx, mailgunAPIKey, receiverEmail, "Assignment Submission Succeeded",
-                    "Your submission is submitted successfully! Path in GCP bucket: " + objectName, dynamoDBTableName);
+                    "Your submission is submitted successfully! Path in GCP bucket: " + bucketName + objectName, dynamoDBTableName);
             return "success upload";
         } catch (Exception e) {
             ctx.getLogger().log("Error uploading file: " + e.getMessage());
